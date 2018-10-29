@@ -31,6 +31,7 @@ while len(stationVertrek) == 0:
 
     root = Tk()
     label = Label(master=root, text='', width=200, height=100, background='#fccc20', )
+    # Maakt een window aan met een achtergrondkleur
 
     label.pack()
     root.title('Actuele vertrektijden NS')
@@ -38,9 +39,11 @@ while len(stationVertrek) == 0:
     root.resizable(width=False, height=False)
     root.geometry("890x350")
 
+    # Plaatst het logo
     logo = PhotoImage(file="index.jpg")
     logo_label = Label(root, image=logo, background='#ffc61e')
     logo_label.place(x=10, y='-10')
+
 
     welkom = Label(master=root,
                    text='Welkom bij de NS reisplanner',
@@ -59,9 +62,9 @@ while len(stationVertrek) == 0:
                     font=('Helvetica', 14, 'bold'))
     eindhalte = Entry(master=root, width=30)
 
+    #Plaatst de widgets
     button1 = Button(root, text="Plan uw reis", command=clicked)
     button1.place(x=630, y=290)
-
     welkom.place(x=120, y=5)
     beginlabel.place(x=630, y=160)
     beginhalte.place(x=630, y=190)
