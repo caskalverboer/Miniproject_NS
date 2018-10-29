@@ -38,7 +38,7 @@ while len(stationVertrek) == 0:
     root.resizable(width=False, height=False)
     root.geometry("890x350")
 
-    logo = PhotoImage(file="index.png", )
+    logo = PhotoImage(file="index.jpg")
     logo_label = Label(root, image=logo, background='#ffc61e')
     logo_label.place(x=10, y='-10')
 
