@@ -72,7 +72,7 @@ while len(stationVertrek) == 0:
     eindhalte.place(x=630, y=260)
 
     root.mainloop()
-
+#dxddf
 
 # Informatie ophalen uit API
 url = ('https://webservices.ns.nl/ns-api-avt?station=' + stationVertrek)
