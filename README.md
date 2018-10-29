@@ -1,9 +1,6 @@
 Miniproject NS vertrektijden
 
 Voor dit programma is python 3 vereist. 
-Ook zijn de volgende modules vereist:
-
-requests
-xmltodict
+Ook zijn de volgende modules vereist: requests en xmltodict
 
 Om het programma te draaien moet code.py worden uitgevoerd met python
