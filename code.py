@@ -3,15 +3,15 @@ from tkinter import *
 import requests
 import xmltodict
 
-#Account invoeren om in te loggen op de API
+# Account invoeren om in te loggen op de API
 username = 'jestin.vanhamond@student.hu.nl'
 password = 'qDjrtZk4yNvuVLqyzBPqSVG5XkKTkxA-R3cnRa9_11erxyf1gJGGGQ'
 
-#XML bestand openenen als deze bestaat / aanmaken als deze nog niet bestaat in 'write' modus
+# XML bestand openenen als deze bestaat / aanmaken als deze nog niet bestaat in 'write' modus
 file = open('Reistijden.xml', 'w')
 xmlFile='Reistijden.xml'
 
-#Tekstvelden/inputvelden
+# Tekstvelden/inputvelden
 stationVertrek = ''
 stationBestemming = ''
 
@@ -31,47 +31,39 @@ while len(stationVertrek) == 0:
 
     root = Tk()
     label = Label(master=root, text='', width=200, height=100, background='#fccc20', )
-    # Maakt een window aan met een achtergrondkleur
 
     label.pack()
     root.title('Actuele vertrektijden NS')
     root.configure(background='#fccc20')
     root.resizable(width=False, height=False)
-    root.geometry("890x350")
+    root.geometry("900x350")
 
-    # Plaatst het logo
-    logo = PhotoImage(file="index.jpg")
+    logo = PhotoImage(file="index.png", )
     logo_label = Label(root, image=logo, background='#ffc61e')
     logo_label.place(x=10, y='-10')
 
-
-    welkom = Label(master=root,
-                   text='Welkom bij de NS reisplanner',
-                   foreground='dark blue',
-                   background='#fccc20',
-                   font=('Helvetica', 20, 'bold'))
     beginlabel = Label(master=root,
                     text='Voer hier de beginhalte in:',
                     background='#fccc20',
-                    font = ('Helvetica', 14, 'bold'))
-    beginhalte = Entry(master=root, width=30)
+                    font = ('Helvetica', 13, 'bold'))
+    beginhalte = Entry(master=root, font=('Helvetica', 14))
 
     eindlabel = Label(master=root,
                     text='Voer hier de eindhalte in:',
                     background='#fccc20',
-                    font=('Helvetica', 14, 'bold'))
-    eindhalte = Entry(master=root, width=30)
+                    font=('Helvetica', 13, 'bold'))
+    eindhalte = Entry(master=root, font=('Helvetica', 14))
 
-    #Plaatst de widgets
-    button1 = Button(root, text="Plan uw reis", command=clicked)
-    button1.place(x=630, y=290)
-    welkom.place(x=120, y=5)
-    beginlabel.place(x=630, y=160)
-    beginhalte.place(x=630, y=190)
-    eindlabel.place(x=630, y=230)
-    eindhalte.place(x=630, y=260)
+    button1 = Button(root, text="Plan uw reis", command=clicked, font=('Helvetica', 12))
+    button1.place(x=593, y=235, width=193)
+
+    beginlabel.place(x=580, y=100)
+    beginhalte.place(x=580, y=130)
+    eindlabel.place(x=580, y=170)
+    eindhalte.place(x=580, y=200)
 
     root.mainloop()
+
 
 # Informatie ophalen uit API
 url = ('https://webservices.ns.nl/ns-api-avt?station=' + stationVertrek)
@@ -102,7 +94,6 @@ try:
         vertrekTijd = var['VertrekTijd']
         vertrekTijden = vertrekTijd[11:16]
 
-
         if eindbestemming == stationBestemming:
             x = stationVertrek
             y = stationBestemming
@@ -113,7 +104,10 @@ try:
     # Opent tkinter form met output
     root2 = Tk()
     root2.configure(background='#fccc20')
-    t = Text(root2, width='77', height='20', bg='#fccc20', padx='10', spacing1='5')
+    t = Text(root2, width='62', height='20', bg='#fccc20', padx='10', spacing1='5', font=('Helvetica', 14))
+
+    button1 = Button(root2, text="Ga terug", font=('Helvetica', 12))
+    button1.place(x=253, y=500, width=193)
 
     # Voor elk item in setReizen schrijf weg
     if len(setReizen) == 0:
@@ -133,4 +127,3 @@ except FileNotFoundError:
 
 except:
     print('Algemene fout.')
-
